@@ -1,8 +1,17 @@
 package fr.iutvalence.info.dut.m3105.gildedroseinn.refactoring;
 
+/**
+ * Item sold by {@link GildedRose}: name, sell in and quality.
+ *
+ * @author Sebastien JEAN
+ * @version 1.0.0
+ */
 public class Item {
+    /** Product name. */
     private String name;
+    /** Number of days before the product is perished. */
     private int    sellIn;
+    /** Product price. */
     private int    quality;
 
     public Item(String name, int sellIn, int quality) {

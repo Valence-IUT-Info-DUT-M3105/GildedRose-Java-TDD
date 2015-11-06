@@ -6,41 +6,46 @@ package fr.iutvalence.info.dut.m3105.gildedroseinn.refactoring;
  * @author Sebastien JEAN
  * @version 1.0.0
  */
-public class Item {
+public final class Item {
     /** Product name. */
-    private String name;
+    private String m_name;
     /** Number of days before the product is perished. */
-    private int    sellIn;
+    private int    m_sellIn;
     /** Product price. */
-    private int    quality;
+    private int    m_quality;
 
-    public Item(String name, int sellIn, int quality) {
-        this.setName(name);
-        this.setSellIn(sellIn);
-        this.setQuality(quality);
+    public Item(final String name, final int sellIn, final int quality) {
+        m_name = name;
+        m_sellIn = sellIn;
+        m_quality = quality;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s (%d/%d)", m_name, m_sellIn, m_quality);
     }
 
     public String getName() {
-        return this.name;
+        return m_name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(final String name) {
+        m_name = name;
     }
 
     public int getSellIn() {
-        return this.sellIn;
+        return m_sellIn;
     }
 
-    public void setSellIn(int sellIn) {
-        this.sellIn = sellIn;
+    public void setSellIn(final int sellIn) {
+        m_sellIn = sellIn;
     }
 
     public int getQuality() {
-        return this.quality;
+        return m_quality;
     }
 
-    public void setQuality(int quality) {
-        this.quality = quality;
+    public void setQuality(final int quality) {
+        m_quality = quality;
     }
 }

@@ -1,7 +1,5 @@
 package fr.iutvalence.info.dut.m3105.gildedroseinn.refactoring;
 
-import java.util.List;
-
 /**
  * GildedRose store.
  *
@@ -19,7 +17,7 @@ public final class GildedRose {
      *
      * @see Item
      */
-    public static void updateItems(final List<Item> items) {
+    public static void updateItems(final Iterable<Item> items) {
         for (final Item item : items) {
             updateItem(item);
         }

@@ -48,4 +48,8 @@ public final class Item {
     public void updateQuality(final int delta) {
         m_quality += delta;
     }
+
+    public boolean isPerished() {
+        return m_sellIn < 0;
+    }
 }

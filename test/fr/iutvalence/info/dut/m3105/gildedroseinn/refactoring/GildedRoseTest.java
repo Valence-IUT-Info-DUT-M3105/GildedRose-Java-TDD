@@ -39,7 +39,7 @@ public final class GildedRoseTest {
             GildedRose.updateItems(m_items);
             for (final Item item : m_items) {
                 assertEquals(5 - day - ((day > 5) ? (day - 5) : 0), item.getQuality());
-                assertEquals(5 - day, item.getQuality());
+                assertEquals(5 - day, item.getSellIn());
             }
         }
     }

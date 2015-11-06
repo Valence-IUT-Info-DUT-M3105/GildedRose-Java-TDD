@@ -31,7 +31,14 @@ public final class GildedRose {
      * @see Item
      */
     public static void updateItem(final Item item) {
-        item.updateSellIn(-1);
-        item.updateQuality(-1);
+        updateSellInForItem(item);
+        updateQualityForItem(item);
     }
+
+    private static void updateQualityForItem(final Item item) {
+        final int qualityCoeff = item.isPerished() ? 2 : 1;
+        item.updateQuality(-1 * qualityCoeff);
+    }
+
+    private static void updateSellInForItem(final Item item) { item.updateSellIn(-1); }
 }

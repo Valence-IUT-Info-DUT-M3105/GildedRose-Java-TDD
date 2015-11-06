@@ -3,7 +3,7 @@ package fr.iutvalence.info.dut.m3105.gildedroseinn.refactoring;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 import static org.junit.Assert.assertEquals;
 
@@ -19,14 +19,14 @@ public final class GildedRoseTest {
 
     @Test
     public void endOfDayWithoutItemTest() {
-        final List<Item> items = new ArrayList<>(0);
+        final Collection<Item> items = new ArrayList<>(0);
         GildedRose.updateItems(items);
         assertEquals(0, items.size());
     }
 
     @Test
     public void endOfDayForSeveralItemsTest() {
-        final List<Item> items = new ArrayList<>(3);
+        final Collection<Item> items = new ArrayList<>(3);
         items.add(new Item("a", 1, 2));
         items.add(new Item("b", 1, 2));
         items.add(new Item("c", 1, 2));

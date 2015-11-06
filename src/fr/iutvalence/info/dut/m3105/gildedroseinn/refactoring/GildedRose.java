@@ -8,7 +8,7 @@ import java.util.List;
  * @author Anthony GELIBERT
  * @version 1.0.0
  */
-public class GildedRose {
+public final class GildedRose {
     /** Forbidden constructor. */
     private GildedRose() {}
 
@@ -19,9 +19,9 @@ public class GildedRose {
      *
      * @see Item
      */
-    public static void updateItems(List<Item> items) {
-        for (int indexInItemList = 0; indexInItemList < items.size(); indexInItemList++) {
-            updateItem(items.get(indexInItemList));
+    public static void updateItems(final List<Item> items) {
+        for (final Item item : items) {
+            updateItem(item);
         }
     }
 
@@ -32,7 +32,7 @@ public class GildedRose {
      *
      * @see Item
      */
-    public static void updateItem(Item item) {
+    public static void updateItem(final Item item) {
         item.setQuality(item.getQuality() - 1);
         item.setSellIn(item.getSellIn() - 1);
     }

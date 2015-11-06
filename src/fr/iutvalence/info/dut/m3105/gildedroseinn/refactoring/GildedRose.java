@@ -9,6 +9,9 @@ import java.util.List;
  * @version 1.0.0
  */
 public class GildedRose {
+    /** Forbidden constructor. */
+    private GildedRose() {}
+
     /**
      * Day's end update of all the items.
      *

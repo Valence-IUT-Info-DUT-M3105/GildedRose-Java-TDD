@@ -31,7 +31,7 @@ public final class GildedRose {
      * @see Item
      */
     public static void updateItem(final Item item) {
-        item.setQuality(item.getQuality() - 1);
-        item.setSellIn(item.getSellIn() - 1);
+        item.updateSellIn(-1);
+        item.updateQuality(-1);
     }
 }

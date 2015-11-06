@@ -38,8 +38,10 @@ public final class ItemTest {
 
     @Test
     public void testSetSellIn() {
-        m_item.setSellIn(2);
+        m_item.updateSellIn(1);
         assertEquals(2, m_item.getSellIn());
+        m_item.updateSellIn(-1);
+        assertEquals(1, m_item.getSellIn());
     }
 
     @Test
@@ -49,7 +51,9 @@ public final class ItemTest {
 
     @Test
     public void testSetQuality() {
-        m_item.setQuality(1);
-        assertEquals(1, m_item.getQuality());
+        m_item.updateQuality(1);
+        assertEquals(3, m_item.getQuality());
+        m_item.updateQuality(-1);
+        assertEquals(2, m_item.getQuality());
     }
 }

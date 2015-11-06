@@ -37,15 +37,15 @@ public final class Item {
         return m_sellIn;
     }
 
-    public void setSellIn(final int sellIn) {
-        m_sellIn = sellIn;
+    public void updateSellIn(final int delta) {
+        m_sellIn += delta;
     }
 
     public int getQuality() {
         return m_quality;
     }
 
-    public void setQuality(final int quality) {
-        m_quality = quality;
+    public void updateQuality(final int delta) {
+        m_quality += delta;
     }
 }

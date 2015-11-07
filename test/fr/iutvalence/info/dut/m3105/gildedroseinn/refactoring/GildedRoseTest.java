@@ -82,4 +82,17 @@ public final class GildedRoseTest {
             assertEquals(10 - day, item.getSellIn());
         }
     }
+
+    @Test
+    public void legendaryItemsAreLegendaries() {
+        final Item item = new Item("Sulfuras", 10, 20);
+
+        m_items.add(item);
+
+        for (int day = 1; day <= 10; day++) {
+            GildedRose.updateItems(m_items);
+            assertEquals(20, item.getQuality());
+            assertEquals(10, item.getSellIn());
+        }
+    }
 }

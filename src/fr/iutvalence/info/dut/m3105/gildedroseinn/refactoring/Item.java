@@ -23,6 +23,7 @@ public final class Item {
      */
     public Item(final String name, final int sellIn, final int quality) {
         assert quality >= 0 : "You try to create an item with a negative quality";
+        assert quality <= 50 : "You try to create an item with a quality > 50";
 
         m_name = name;
         m_sellIn = sellIn;
@@ -57,6 +58,7 @@ public final class Item {
     public void updateQuality(final int delta) {
         m_quality += delta;
         if (m_quality < 0) { m_quality = 0; }
+        if (m_quality > 50) { m_quality = 50; }
     }
 
     public boolean isPerished() {

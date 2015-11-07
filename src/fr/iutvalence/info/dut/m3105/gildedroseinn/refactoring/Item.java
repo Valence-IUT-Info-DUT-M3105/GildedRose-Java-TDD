@@ -64,4 +64,8 @@ public final class Item {
     public boolean isPerished() {
         return m_sellIn < 0;
     }
+
+    public boolean isLegendary() {
+        return "Sulfuras".equals(m_name);
+    }
 }

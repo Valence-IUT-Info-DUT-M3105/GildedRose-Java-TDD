@@ -29,6 +29,10 @@ public final class GildedRose {
      * @see Item
      */
     public static void updateItem(final Item item) {
+        if (item.isLegendary()) {
+            return;
+        }
+
         updateSellInForItem(item);
         updateQualityForItem(item);
     }

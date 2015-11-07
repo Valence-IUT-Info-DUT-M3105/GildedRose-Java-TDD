@@ -23,7 +23,7 @@ public final class Item {
      */
     public Item(final String name, final int sellIn, final int quality) {
         assert quality >= 0 : "You try to create an item with a negative quality";
-        assert quality <= 50 : "You try to create an item with a quality > 50";
+        assert "Sulfuras".equals(name) || (quality <= 50) : "You try to create an item with a quality > 50";
 
         m_name = name;
         m_sellIn = sellIn;

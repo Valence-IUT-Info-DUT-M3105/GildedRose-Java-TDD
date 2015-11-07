@@ -36,7 +36,13 @@ public final class GildedRose {
     }
 
     private static void updateQualityForItem(final Item item) {
-        final int qualityCoeff = item.isPerished() ? 2 : 1;
+        final int qualityCoeff;
+        if ("Aged Brie".equals(item.getName())) {
+            qualityCoeff = -1;
+        }
+        else {
+            qualityCoeff = item.isPerished() ? 2 : 1;
+        }
         item.updateQuality(-1 * qualityCoeff);
     }
 

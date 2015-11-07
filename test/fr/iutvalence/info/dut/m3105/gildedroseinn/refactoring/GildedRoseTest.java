@@ -46,28 +46,40 @@ public final class GildedRoseTest {
 
     @Test
     public void cantHaveNegativeQualityTest() {
-        m_items.add(new Item("a", 5, 0));
-        m_items.add(new Item("b", 5, 0));
-        m_items.add(new Item("c", 5, 0));
+        final Item item = new Item("a", 5, 0);
+
+        m_items.add(item);
 
         for (int day = 1; day <= 5; day++) {
             GildedRose.updateItems(m_items);
-            for (final Item item : m_items) {
-                assertEquals(0, item.getQuality());
-                assertEquals(5 - day, item.getSellIn());
-            }
+            assertEquals(0, item.getQuality());
+            assertEquals(5 - day, item.getSellIn());
+        }
+    }
+
+    @Test
+    public void cantHaveCostlyItemTest() {
+        final Item item = new Item("Aged Brie", 10, 50);
+
+        m_items.add(item);
+
+        for (int day = 1; day <= 10; day++) {
+            GildedRose.updateItems(m_items);
+            assertEquals(50, item.getQuality());
+            assertEquals(10 - day, item.getSellIn());
         }
     }
 
     @Test
     public void agedBrieIsSpecialTest() {
         final Item item = new Item("Aged Brie", 10, 0);
+
         m_items.add(item);
 
         for (int day = 1; day <= 10; day++) {
             GildedRose.updateItems(m_items);
             assertEquals(day, item.getQuality());
-
+            assertEquals(10 - day, item.getSellIn());
         }
     }
 }

@@ -109,15 +109,28 @@ public final class GildedRoseTest {
 
         for (int day = 1; day <= 5; day++) {
             GildedRose.updateItems(m_items);
-            assertEquals(19 + 2 * day, item.getQuality());
+            assertEquals(19 + (2 * day), item.getQuality());
         }
 
         for (int day = 1; day <= 5; day++) {
             GildedRose.updateItems(m_items);
-            assertEquals(29 + 3 * day, item.getQuality());
+            assertEquals(29 + (3 * day), item.getQuality());
         }
 
         GildedRose.updateItems(m_items);
         assertEquals(0, item.getQuality());
+    }
+
+    @Test
+    public void conjuredItemsAreConjuredTest() {
+        final Item item = new Item("Conjured", 10, 20);
+
+        m_items.add(item);
+
+        for (int day = 1; day <= 10; day++) {
+            GildedRose.updateItems(m_items);
+            assertEquals(20 - (2 * day), item.getQuality());
+            assertEquals(10 - day, item.getSellIn());
+        }
     }
 }

@@ -47,7 +47,7 @@ public final class Item {
         return m_sellIn;
     }
 
-    public void updateSellIn() {
+    void updateSellIn() {
         m_sellIn--;
     }
 
@@ -55,7 +55,7 @@ public final class Item {
         return m_quality;
     }
 
-    public void updateQuality(final int delta) {
+    void updateQuality(final int delta) {
         m_quality += delta;
         if (m_quality < 0) { m_quality = 0; }
         if (m_quality > 50) { m_quality = 50; }

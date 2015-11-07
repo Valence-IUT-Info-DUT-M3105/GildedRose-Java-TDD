@@ -31,14 +31,29 @@ public final class GildedRoseTest {
 
     @Test
     public void endOfDayForSeveralItemsTest() {
-        m_items.add(new Item("a", 5, 5));
-        m_items.add(new Item("b", 5, 5));
-        m_items.add(new Item("c", 5, 5));
+        m_items.add(new Item("a", 5, 15));
+        m_items.add(new Item("b", 5, 15));
+        m_items.add(new Item("c", 5, 15));
 
         for (int day = 1; day <= 10; day++) {
             GildedRose.updateItems(m_items);
             for (final Item item : m_items) {
-                assertEquals(5 - day - ((day > 5) ? (day - 5) : 0), item.getQuality());
+                assertEquals(15 - day - ((day > 5) ? (day - 5) : 0), item.getQuality());
+                assertEquals(5 - day, item.getSellIn());
+            }
+        }
+    }
+
+    @Test
+    public void cantHaveNegativeQualityTest() {
+        m_items.add(new Item("a", 5, 0));
+        m_items.add(new Item("b", 5, 0));
+        m_items.add(new Item("c", 5, 0));
+
+        for (int day = 1; day <= 5; day++) {
+            GildedRose.updateItems(m_items);
+            for (final Item item : m_items) {
+                assertEquals(0, item.getQuality());
                 assertEquals(5 - day, item.getSellIn());
             }
         }

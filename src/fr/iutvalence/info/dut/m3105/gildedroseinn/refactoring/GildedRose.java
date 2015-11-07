@@ -38,33 +38,31 @@ public final class GildedRose {
     }
 
     private static void updateQualityForItem(final Item item) {
-        final int sellIn = item.getSellIn();
-        final int qualityCoeff;
+        final int qualityCoeff = getQualityCoeff(item);
+        item.updateQuality(-1 * qualityCoeff);
+    }
+
+    private static int getQualityCoeff(final Item item) {
 
         switch (item.getName()) {
-            case "Aged Brie": {
-                qualityCoeff = -1;
-                break;
-            }
+            case "Aged Brie":
+                return -1;
             case "Backstage passes": {
+                final int sellIn = item.getSellIn();
+
                 if (sellIn <= 0) {
-                    qualityCoeff = item.getQuality();
+                    return item.getQuality();
                 }
-                else {
-                    if (sellIn <= 5) {
-                        qualityCoeff = -3;
-                    }
-                    else {
-                        qualityCoeff = (sellIn <= 10) ? -2 : -1;
-                    }
+
+                if (sellIn <= 5) {
+                    return -3;
                 }
-                break;
+
+                return (sellIn <= 10) ? -2 : -1;
             }
             default:
-                qualityCoeff = item.isPerished() ? 2 : 1;
-                break;
+                return item.isPerished() ? 2 : 1;
         }
-        item.updateQuality(-1 * qualityCoeff);
     }
 
     private static void updateSellInForItem(final Item item) { item.updateSellIn(-1); }

@@ -37,11 +37,9 @@ public final class ItemTest {
     }
 
     @Test
-    public void testSetSellIn() {
-        m_item.updateSellIn(1);
-        assertEquals(2, m_item.getSellIn());
-        m_item.updateSellIn(-1);
-        assertEquals(1, m_item.getSellIn());
+    public void testUpdateSellIn() {
+        m_item.updateSellIn();
+        assertEquals(0, m_item.getSellIn());
     }
 
     @Test

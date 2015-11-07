@@ -47,8 +47,8 @@ public final class Item {
         return m_sellIn;
     }
 
-    public void updateSellIn(final int delta) {
-        m_sellIn += delta;
+    public void updateSellIn() {
+        m_sellIn--;
     }
 
     public int getQuality() {

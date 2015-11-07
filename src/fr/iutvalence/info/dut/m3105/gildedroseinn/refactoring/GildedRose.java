@@ -33,7 +33,7 @@ public final class GildedRose {
             return;
         }
 
-        updateSellInForItem(item);
+        item.updateSellIn();
         updateQualityForItem(item);
     }
 
@@ -42,7 +42,6 @@ public final class GildedRose {
     }
 
     private static int getQualityDeltaForItem(final Item item) {
-
         switch (item.getName()) {
             case "Aged Brie":
                 return 1;
@@ -69,6 +68,4 @@ public final class GildedRose {
                 return item.isPerished() ? -2 : -1;
         }
     }
-
-    private static void updateSellInForItem(final Item item) { item.updateSellIn(-1); }
 }

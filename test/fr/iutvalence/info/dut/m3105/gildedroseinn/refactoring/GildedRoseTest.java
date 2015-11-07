@@ -84,7 +84,7 @@ public final class GildedRoseTest {
     }
 
     @Test
-    public void legendaryItemsAreLegendaries() {
+    public void legendaryItemsAreLegendariesTest() {
         final Item item = new Item("Sulfuras", 10, 20);
 
         m_items.add(item);
@@ -94,5 +94,30 @@ public final class GildedRoseTest {
             assertEquals(20, item.getQuality());
             assertEquals(10, item.getSellIn());
         }
+    }
+
+    @Test
+    public void backstageTest() {
+        final Item item = new Item("Backstage passes", 20, 10);
+
+        m_items.add(item);
+
+        for (int day = 1; day <= 10; day++) {
+            GildedRose.updateItems(m_items);
+            assertEquals(10 + day, item.getQuality());
+        }
+
+        for (int day = 1; day <= 5; day++) {
+            GildedRose.updateItems(m_items);
+            assertEquals(20 + 2 * day, item.getQuality());
+        }
+
+        for (int day = 1; day <= 5; day++) {
+            GildedRose.updateItems(m_items);
+            assertEquals(30 + 3 * day, item.getQuality());
+        }
+
+        GildedRose.updateItems(m_items);
+        assertEquals(0, item.getQuality());
     }
 }

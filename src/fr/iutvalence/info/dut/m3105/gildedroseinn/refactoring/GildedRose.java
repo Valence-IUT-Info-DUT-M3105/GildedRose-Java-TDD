@@ -18,9 +18,7 @@ public final class GildedRose {
      * @see Item
      */
     public static void updateItems(final Iterable<Item> items) {
-        for (final Item item : items) {
-            updateItem(item);
-        }
+        items.forEach(GildedRose::updateItem);
     }
 
     /**
@@ -37,7 +35,7 @@ public final class GildedRose {
 
     private static void updateQualityForItem(final Item item) {
         final int qualityCoeff;
-        if ("Aged Brie".equals(item.getName())) {
+        if ("Aged Brie".equals(item.getName())) { // NON-NLS
             qualityCoeff = -1;
         }
         else {

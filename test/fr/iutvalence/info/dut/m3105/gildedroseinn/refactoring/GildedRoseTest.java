@@ -102,19 +102,19 @@ public final class GildedRoseTest {
 
         m_items.add(item);
 
-        for (int day = 1; day <= 10; day++) {
+        for (int day = 1; day <= 9; day++) {
             GildedRose.updateItems(m_items);
             assertEquals(10 + day, item.getQuality());
         }
 
         for (int day = 1; day <= 5; day++) {
             GildedRose.updateItems(m_items);
-            assertEquals(20 + 2 * day, item.getQuality());
+            assertEquals(19 + 2 * day, item.getQuality());
         }
 
         for (int day = 1; day <= 5; day++) {
             GildedRose.updateItems(m_items);
-            assertEquals(30 + 3 * day, item.getQuality());
+            assertEquals(29 + 3 * day, item.getQuality());
         }
 
         GildedRose.updateItems(m_items);

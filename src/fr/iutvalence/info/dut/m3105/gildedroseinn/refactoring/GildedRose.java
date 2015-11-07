@@ -63,6 +63,8 @@ public final class GildedRose {
 
                 return 1;
             }
+            case "Conjured":
+                return -2;
             default:
                 return item.isPerished() ? -2 : -1;
         }

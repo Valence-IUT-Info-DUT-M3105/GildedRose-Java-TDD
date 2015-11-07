@@ -58,4 +58,16 @@ public final class GildedRoseTest {
             }
         }
     }
+
+    @Test
+    public void agedBrieIsSpecialTest() {
+        final Item item = new Item("Aged Brie", 10, 0);
+        m_items.add(item);
+
+        for (int day = 1; day <= 10; day++) {
+            GildedRose.updateItems(m_items);
+            assertEquals(day, item.getQuality());
+
+        }
+    }
 }

@@ -14,7 +14,16 @@ public final class Item {
     /** Product price. */
     private int    m_quality;
 
+    /**
+     * New item with the given information.
+     *
+     * @param name    Product's name
+     * @param sellIn  Product's sell in
+     * @param quality Product's quality <b>(ALWAYS > 0)</b>
+     */
     public Item(final String name, final int sellIn, final int quality) {
+        assert quality >= 0 : "You try to create an item with a negative quality";
+
         m_name = name;
         m_sellIn = sellIn;
         m_quality = quality;
@@ -47,6 +56,7 @@ public final class Item {
 
     public void updateQuality(final int delta) {
         m_quality += delta;
+        if (m_quality < 0) { m_quality = 0; }
     }
 
     public boolean isPerished() {
